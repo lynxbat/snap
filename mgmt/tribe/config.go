@@ -89,9 +89,10 @@ const (
 
 // get the default snapteld configuration
 func GetDefaultConfig() *Config {
-	mlCfg := memberlist.DefaultLANConfig()
-	mlCfg.PushPullInterval = defaultPushPullInterval
-	mlCfg.GossipNodes = mlCfg.GossipNodes * 2
+	mlCfg := memberlist.DefaultWANConfig()
+	// go with the above purely
+	// mlCfg.PushPullInterval = defaultPushPullInterval
+	// mlCfg.GossipNodes = mlCfg.GossipNodes * 2
 	return &Config{
 		Name:                      getHostname(),
 		Enable:                    defaultEnable,
